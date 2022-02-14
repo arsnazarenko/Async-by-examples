@@ -1,2 +1,0 @@
-
-threading.Thread(target=client)]

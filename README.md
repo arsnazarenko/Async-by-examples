@@ -9,6 +9,3 @@
 ## Step 3. Non-blocking IO
 < todo
 
-## Step 4. Event-loop with coroutines
-< todo
-
