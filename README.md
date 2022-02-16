@@ -1,10 +1,10 @@
 # Asynchronous programming step by step
 ---
 ## Step 1. Generators in python 
-[source code]()
+[source code](https://github.com/arsnazarenko/async-by-examples/blob/master/generators.py)
 < comments
 
-## Step 2. Blocking IO with one thread
+## Step 2. from generators to async/await
 [source code]()
 < comments
 
@@ -16,10 +16,7 @@ o[source code]()
 <[source code]()
 < comments
 
-## Step 5. Non blocking with generators
+## Step 5. Non blocking IO with async/await
 <[source code]()
-< comments
+< todo!
 
-## Step 5. from generators to async/await
-[source code]()
-< comments
