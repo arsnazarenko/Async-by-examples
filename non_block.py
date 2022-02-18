@@ -1,5 +1,5 @@
 #   Step 3. Non-blocking server
-
+#   Problem: Very obscure code. Very different from the synchronous version of the server
 
 import socket
 import random

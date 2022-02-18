@@ -8,14 +8,18 @@ import sys
 import time
 
 
-def server(port=8080):
-    # socket.AF_INET - use IPv4, socket.SOCK_STREAM - use TCP protocol
+def create_socket(port):
+     # socket.AF_INET - use IPv4, socket.SOCK_STREAM - use TCP protocol
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     opts = ("127.0.0.1", port)
     s.bind(opts)
-    print("Server started on", opts)
     # listen(n): n - number of allowed conntections in queue for accept
-    s.listen(10);
+    s.listen(1000);
+    return s
+
+def server(port=8080):
+    s = create_socket(port)
+    print("Server started")
     while True:
         conn, addr = s.accept() 
         handle_connection(conn, addr)
