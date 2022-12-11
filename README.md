@@ -57,6 +57,8 @@ Client send to server numbers in infinity loop
 
 ## Result
 
+### One-thread server with blocking IO
+
 ``` python
 def server(port=8080):
     s = create_socket(port)
