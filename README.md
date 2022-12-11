@@ -22,6 +22,7 @@ Run:
 $ python3 thread_block_server.py
 ```
 The modified server from the previous step. One thread per client. C10k problem
+
 [thread_block_server.py](https://github.com/arsnazarenko/async-by-examples/blob/master/thread_block_server.py)
 
 #### 3. Server with non-blocking IO
