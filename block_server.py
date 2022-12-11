@@ -32,7 +32,7 @@ def handle_connection(conn, addr):
         if not data:    
             break
         n = int(data.decode())
-        res = f"{n * 2}\n"
+        res = f"{n * n}\n"
         print(n, res.strip())
         conn.send(res.encode())
     print("Disconnected by", addr)

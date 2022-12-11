@@ -1,38 +1,61 @@
-# Asynchronous programming step by step
----
-## Step 1. Generators in python 
-[source code](https://github.com/arsnazarenko/async-by-examples/blob/master/generators.py)
->
-> Examples of generators in python. Some trick for asynchronous function execution with Future and generators. 
+# Asynchronous programming in Python step by step
 
-## Step 2. From generators to async/await
-[source code](https://github.com/arsnazarenko/async-by-examples/blob/master/one_thread_concurrency.py)
->
-> Concurrency in one thread. Building your own async/await from scratch. Scheduler for tasks.
+### Prerequisites
+- Python3.8
 
-## Step 3. Blocking IO
-[source code](https://github.com/arsnazarenko/async-by-examples/blob/master/block.py)
->
-> Examples of one thread server for finding squares of numbers. Sockets in blocking mode. Clients can only be processed sequentially.
+### Server
 
-## Step 3. Blocking IO with multiply threads
-[source code](https://github.com/arsnazarenko/async-by-examples/blob/master/thread.py)
->
-> The modified server from the previous step. One thread per client.
+#### 1. One-thread server with blocking IO
 
-## Step 4. Non-blocking IO
-[source code](https://github.com/arsnazarenko/async-by-examples/blob/master/non_block.py)
->
-> Non-blocking server with *select()* API
+Run:
+```shell
+$ python3 block_server.py
+```
 
-## Step 5. Non blocking IO with async/await
-[source code](https://github.com/arsnazarenko/async-by-examples/blob/master/async_server.py)
->
-> Non blocking server with scheduler and async/await syntax.
+Simple one thread server for finding squares of numbers. Sockets in blocking mode. Clients can only be processed sequentially.
 
-# Results
----
-### Synchronous blocking server
+[block_server.py](https://github.com/arsnazarenko/async-by-examples/blob/master/block_server.py)
+
+#### 2. Server with blocking IO and thread per connection
+Run:
+```shell
+$ python3 thread_block_server.py
+```
+The modified server from the previous step. One thread per client. C10k problem
+[thread_block_server.py](https://github.com/arsnazarenko/async-by-examples/blob/master/thread_block_server.py)
+
+#### 3. Server with non-blocking IO
+Run:
+```shell
+$ python3 non_block_server.py
+```
+Non-blocking server with *select()* API
+
+[non_block_server.py](https://github.com/arsnazarenko/async-by-examples/blob/master/non_block_server.py)
+
+
+#### 4. Server with non-blocking IO and async/await syntax
+Run:
+```shell
+$ python3 async_server.py
+```
+Non-blocking server with scheduler and async/await syntax.
+
+[async_server.py](https://github.com/arsnazarenko/async-by-examples/blob/master/async_server.py)
+
+### Client
+
+Run: 
+```shell
+$ python3 client.py - one thread client 
+$ python3 client.py [N] - client with N thread 
+```
+Client send to server numbers in infinity loop
+
+[async_server.py](https://github.com/arsnazarenko/async-by-examples/blob/master/async_server.py)
+
+## Result
+
 ``` python
 def server(port=8080):
     s = create_socket(port)
@@ -77,8 +100,5 @@ async def handle_connection(client, addr):
         await send(client, res.encode())
     print("Disconnected by", addr)
 ```
->
-> As you can see from the code, we are now writing asynchronous code in a synchronous style
-## Client for servers:
-[source code](https://github.com/arsnazarenko/async-by-examples/blob/master/client.py)
 
+As you can see from the code, we are now writing asynchronous code in a synchronous style
