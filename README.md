@@ -53,7 +53,7 @@ $ python3 client.py [N] - client with N thread
 ```
 Client send to server numbers in infinity loop
 
-[async_server.py](https://github.com/arsnazarenko/async-by-examples/blob/master/async_server.py)
+[client.py](https://github.com/arsnazarenko/async-by-examples/blob/master/client.py)
 
 ## Result
 
